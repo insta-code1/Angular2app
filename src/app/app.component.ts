@@ -1,32 +1,14 @@
 import { Component } from '@angular/core';
-import { OtherComponent } from './other';
-import { AnotherComponent } from './other';
+import { DatabindingComponent } from './databinding';
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
-  template: `
-              <h1>
-              {{title}}
-              </h1>
-              <p1>
-              {{content}}
-              </p1>
-              <app-other></app-other>
-              <app-another>
-              <h1>Hello!</h1>
-              <p1>World!</p1>
-              </app-another>
-              <app-another>
-              <p>something else...</p>
-              </app-another>
+  template:   `<app-databinding>
+  
+              </app-databinding>
             `,
-  styles: [`
-          h1 {
-            color: red;
-          }
-          `],
-  directives: [OtherComponent, AnotherComponent]
+  directives: [ DatabindingComponent]
 })
 export class AppComponent {
   title: string = 'This is live!!';
