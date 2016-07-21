@@ -1,16 +1,23 @@
 import { Component } from '@angular/core';
-import { DatabindingComponent } from './databinding';
+import { LifecycleComponent } from './lifecycle.component';
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
-  template:   `<app-databinding>
-  
-              </app-databinding>
+  template:   `
+    <h1>Root Component</h1>
+    <app-lifecycle *ngIf="!delete" [bindable]="boundValue">
+    <p #boundContent>{{test}}</p>
+    <br><br>
+    </app-lifecycle>
+    <button (click)="delete = true">Click to delete</button>
+    <button (click)="test = 'Changed value'">Click to Change</button>
+    <button (click)="boundValue = 2000">Click to Binding</button>
             `,
-  directives: [ DatabindingComponent]
+  directives: [ LifecycleComponent ]
 })
 export class AppComponent {
-  title: string = 'This is live!!';
-  content: string = 'Time to kick some ass!!'
+  delete = false;
+  test = 'Starting value';
+  boundValue = 1000;
 }
